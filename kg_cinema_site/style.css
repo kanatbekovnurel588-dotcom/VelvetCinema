@@ -1,0 +1,907 @@
+
+:root {
+    --black: #100708;
+    --dark: #19090d;
+    --burgundy: #570d20;
+    --red: #a51c37;
+    --gold: #d9b36a;
+    --gold-light: #f3d89c;
+    --text: #f7eee6;
+    --muted: #a99a96;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input {
+    font: inherit;
+}
+
+/* ШАПКА */
+
+.header {
+    height: 86px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #100608;
+    border-bottom: 1px solid rgba(217,179,106,.18);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    font-size: 17px;
+}
+
+.logo small {
+    display: block;
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 5px;
+    margin-top: 4px;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    display: grid;
+    place-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+}
+
+.navigation {
+    display: flex;
+    gap: 34px;
+}
+
+.navigation a {
+    color: #d6c7c0;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.navigation a:hover {
+    color: var(--gold);
+}
+
+.header-button {
+    padding: 13px 23px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.header-button:hover {
+    background: var(--gold);
+    color: #1b0b0c;
+}
+
+/* ГЛАВНЫЙ ЭКРАН */
+
+.hero {
+    min-height: 700px;
+    height: calc(100vh - 86px);
+    max-height: 900px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(90deg, rgba(15,4,7,.92), rgba(25,5,10,.57) 48%, rgba(15,4,7,.15)),
+        linear-gradient(0deg, rgba(10,3,5,.8), transparent 45%),
+        url("https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=2000&q=90");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at 75% 20%, rgba(255,190,93,.22), transparent 32%),
+        linear-gradient(180deg, rgba(65,0,16,.1), rgba(10,3,5,.4));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    margin-left: 10%;
+    max-width: 690px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6.5vw, 88px);
+    line-height: 1.08;
+    margin: 25px 0;
+    text-shadow: 0 5px 35px rgba(0,0,0,.5);
+}
+
+.hero h1 span,
+.section-heading h2 span,
+.about-content h2 span,
+.final-section h2 span {
+    color: var(--gold);
+}
+
+.hero-content p {
+    max-width: 480px;
+    color: #e1d2cb;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 35px;
+}
+
+.gold-button,
+.outline-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 28px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.gold-button {
+    background: linear-gradient(135deg, #f2d69b, #c3974d);
+    color: #1b0b0c;
+    box-shadow: 0 5px 30px rgba(211,166,84,.22);
+}
+
+.gold-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 35px rgba(211,166,84,.4);
+}
+
+.outline-button {
+    border: 1px solid rgba(255,255,255,.55);
+    color: white;
+}
+
+.outline-button:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.hero-bottom {
+    position: absolute;
+    z-index: 2;
+    bottom: 30px;
+    left: 7%;
+    right: 7%;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255,255,255,.65);
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.hero-light {
+    position: absolute;
+    top: -150px;
+    right: 8%;
+    width: 350px;
+    height: 600px;
+    background: rgba(255,190,105,.08);
+    filter: blur(90px);
+    pointer-events: none;
+}
+
+/* ОБЩИЕ СЕКЦИИ */
+
+.section {
+    padding: 110px 8%;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 48px;
+    gap: 20px;
+}
+
+.section-heading h2,
+.about-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 4vw, 49px);
+    margin-top: 13px;
+}
+
+.text-link {
+    color: var(--gold);
+    font-size: 13px;
+    padding-bottom: 8px;
+}
+
+/* ФИЛЬМЫ */
+
+.movies-section {
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(111,17,40,.18), transparent 50%),
+        #12080a;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.movie-card {
+    background: linear-gradient(145deg, #291117, #180b0e);
+    border: 1px solid rgba(217,179,106,.13);
+    transition: .35s;
+    overflow: hidden;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(217,179,106,.65);
+    box-shadow: 0 15px 45px rgba(0,0,0,.4);
+}
+
+.movie-poster {
+    height: 340px;
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+    filter: brightness(.8);
+}
+
+.movie-card:hover .movie-poster img {
+    transform: scale(1.06);
+    filter: brightness(1);
+}
+
+.movie-rating {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(13,6,7,.85);
+    color: var(--gold);
+    padding: 8px 12px;
+    font-size: 12px;
+}
+
+.poster-tag {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    background: var(--red);
+    padding: 7px 10px;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.movie-info {
+    padding: 20px;
+}
+
+.movie-info h3 {
+    font-size: 17px;
+    margin-bottom: 9px;
+}
+
+.movie-info p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.movie-button {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    border: 1px solid rgba(217,179,106,.5);
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.movie-button:hover {
+    background: var(--gold);
+    color: #18090b;
+}
+
+/* О КИНОТЕАТРЕ */
+
+.about-section {
+    padding: 110px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    background:
+        linear-gradient(90deg, #1b090e, #13080a);
+}
+
+.about-image {
+    height: 510px;
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(.72);
+    border: 1px solid rgba(217,179,106,.35);
+}
+
+.image-label {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    padding: 13px 20px;
+    background: rgba(20,5,9,.8);
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-size: 11px;
+}
+
+.about-content > p {
+    color: #b9aaa5;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-top: 22px;
+}
+
+.features {
+    margin-top: 35px;
+}
+
+.feature {
+    display: flex;
+    gap: 20px;
+    padding: 19px 0;
+    border-bottom: 1px solid rgba(217,179,106,.15);
+}
+
+.feature > span {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: var(--gold);
+}
+
+.feature h4 {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.feature p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* РАСПИСАНИЕ */
+
+.schedule-section {
+    background:
+        radial-gradient(ellipse at 50% 50%, rgba(95,12,33,.16), transparent 65%),
+        #100709;
+}
+
+.schedule-date {
+    color: var(--gold);
+    border: 1px solid rgba(217,179,106,.4);
+    padding: 12px 18px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.schedule-card {
+    min-height: 135px;
+    display: grid;
+    grid-template-columns: 100px minmax(150px, 1fr) auto auto;
+    align-items: center;
+    gap: 25px;
+    padding: 16px 25px;
+    background: linear-gradient(110deg, #281117, #1a0c10);
+    border: 1px solid rgba(217,179,106,.16);
+    transition: .3s;
+}
+
+.schedule-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 5px 30px rgba(135,20,45,.15);
+}
+
+.schedule-card > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.schedule-movie h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    margin-bottom: 9px;
+}
+
+.schedule-movie p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.session-times {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.session-times a {
+    border: 1px solid rgba(217,179,106,.4);
+    color: var(--gold);
+    padding: 11px 13px;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.session-times a:hover {
+    background: var(--gold);
+    color: #18090b;
+}
+
+.session-price {
+    color: #e7d8cf;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* ВЫБОР МЕСТ */
+
+.seats-section {
+    padding: 110px 8%;
+    background:
+        linear-gradient(rgba(12,4,7,.9), rgba(12,4,7,.96)),
+        url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=85");
+    background-position: center;
+    background-size: cover;
+}
+
+.cinema-room {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 50px 35px;
+    background: rgba(28,10,15,.91);
+    border: 1px solid rgba(217,179,106,.25);
+    box-shadow: 0 20px 70px rgba(0,0,0,.4);
+}
+
+.screen-area {
+    position: relative;
+    margin: 0 auto 55px;
+    width: 75%;
+}
+
+.screen {
+    position: relative;
+    text-align: center;
+    padding: 14px;
+    background: linear-gradient(90deg, transparent, #e7c98d, transparent);
+    color: #2a1210;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 8px;
+    box-shadow: 0 12px 45px rgba(229,190,117,.28);
+    transform: perspective(300px) rotateX(-8deg);
+}
+
+.screen-glow {
+    position: absolute;
+    inset: -30px 0;
+    background: rgba(233,195,129,.13);
+    filter: blur(30px);
+}
+
+.seat-legend {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 35px;
+    color: #c6b6af;
+    font-size: 11px;
+}
+
+.seat-legend span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.seat-legend i {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+.legend-free {
+    background: #7d3947;
+}
+
+.legend-selected {
+    background: var(--gold);
+}
+
+.legend-busy {
+    background: #443438;
+}
+
+.seat-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.seat-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.row-letter {
+    width: 15px;
+    color: var(--gold);
+    font-size: 12px;
+}
+
+.seat-group {
+    display: flex;
+    gap: 8px;
+}
+
+.seat-group label {
+    cursor: pointer;
+}
+
+.seat-group input {
+    display: none;
+}
+
+.seat-group label span {
+    width: 35px;
+    height: 33px;
+    display: grid;
+    place-items: center;
+    background: #773443;
+    border: 1px solid #a75b6a;
+    border-radius: 7px 7px 4px 4px;
+    color: #fff0e7;
+    font-size: 10px;
+    transition: .2s;
+}
+
+.seat-group label:hover span {
+    background: #a65367;
+    transform: translateY(-3px);
+}
+
+.seat-group input:checked + span {
+    background: var(--gold);
+    color: #21100b;
+    border-color: var(--gold-light);
+    box-shadow: 0 0 18px rgba(217,179,106,.5);
+}
+
+.seat-group input:disabled + span {
+    background: #403136;
+    border-color: #403136;
+    color: #77666a;
+    cursor: not-allowed;
+    opacity: .6;
+}
+
+.seat-group label:has(input:disabled) {
+    cursor: not-allowed;
+}
+
+.seat-note {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    margin: 40px 0 25px;
+}
+
+.seat-button {
+    display: flex;
+    width: fit-content;
+    margin: auto;
+}
+
+/* ФИНАЛЬНЫЙ БЛОК */
+
+.final-section {
+    text-align: center;
+    padding: 120px 20px;
+    background:
+        radial-gradient(ellipse at center, rgba(135,20,48,.35), transparent 65%),
+        linear-gradient(180deg, #1c080e, #100608);
+    border-top: 1px solid rgba(217,179,106,.15);
+}
+
+.final-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 5vw, 60px);
+    margin: 20px 0;
+}
+
+.final-section p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* ПОДВАЛ */
+
+.footer {
+    min-height: 100px;
+    padding: 25px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: #0b0507;
+    border-top: 1px solid rgba(217,179,106,.15);
+}
+
+.footer p,
+.footer-link {
+    color: #9c8985;
+    font-size: 11px;
+}
+
+.footer-link:hover {
+    color: var(--gold);
+}
+
+/* АДАПТИВНОСТЬ */
+
+@media (max-width: 1000px) {
+    .navigation {
+        gap: 15px;
+    }
+
+    .movies-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .schedule-card {
+        grid-template-columns: 80px 1fr;
+    }
+
+    .schedule-card > img {
+        width: 80px;
+        height: 90px;
+    }
+
+    .session-times {
+        grid-column: 2;
+    }
+
+    .session-price {
+        grid-column: 2;
+    }
+
+    .about-section {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        height: auto;
+        min-height: 75px;
+        padding: 15px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .navigation {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .navigation a {
+        font-size: 11px;
+    }
+
+    .header-button {
+        padding: 10px 13px;
+        font-size: 10px;
+    }
+
+    .hero {
+        min-height: 650px;
+        height: 80vh;
+        background-position: center;
+    }
+
+    .hero-content {
+        margin: 0 7%;
+    }
+
+    .hero h1 {
+        font-size: 49px;
+    }
+
+    .hero-content p {
+        font-size: 13px;
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+    .hero-bottom {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .section,
+    .about-section,
+    .seats-section {
+        padding: 75px 5%;
+    }
+
+    .section-heading {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .movies-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .movie-poster {
+        height: 220px;
+    }
+
+    .movie-info {
+        padding: 13px;
+    }
+
+    .movie-info h3 {
+        font-size: 14px;
+    }
+
+    .movie-info p {
+        font-size: 10px;
+    }
+
+    .about-section {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        height: 300px;
+    }
+
+    .schedule-card {
+        gap: 13px;
+        padding: 13px;
+    }
+
+    .schedule-movie h3 {
+        font-size: 15px;
+    }
+
+    .session-times {
+        gap: 6px;
+    }
+
+    .session-times a {
+        padding: 9px;
+        font-size: 10px;
+    }
+
+    .cinema-room {
+        padding: 35px 10px;
+    }
+
+    .seat-row {
+        gap: 7px;
+    }
+
+    .seat-group {
+        gap: 4px;
+    }
+
+    .seat-group label span {
+        width: 25px;
+        height: 27px;
+        font-size: 9px;
+    }
+
+    .seat-legend {
+        gap: 12px;
+        font-size: 9px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 380px) {
+    .movies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .movie-poster {
+        height: 320px;
+    }
+
+    .seat-group label span {
+        width: 21px;
+        height: 24px;
+    }
+}
